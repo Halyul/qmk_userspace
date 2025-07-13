@@ -14,12 +14,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#include "keymap_user.h"
+#include "tap_dance_mac_caps.h"
+#include "tap_dance_win_caps.h"
 
-void rgb_matrix_init_user(void);
+// clang-format off
 
-void rgb_matrix_set_color_by_keycode(uint8_t led_min, uint8_t led_max, uint8_t layer, bool (*is_keycode)(uint16_t), uint8_t red, uint8_t green, uint8_t blue);
+tap_dance_action_t tap_dance_actions[] = {
+    [MAC_CAPS_LANGUAGE_CHANGE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, mac_caps_language_finished, mac_caps_language_reset),
+    [WIN_CAPS_LANGUAGE_CHANGE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, win_caps_language_finished, win_caps_language_reset)
+};
 
-bool is_alphabet_or_caps_lock_indicator(uint16_t keycode);
-bool is_transparent(uint16_t keycode);
-bool is_not_transparent(uint16_t keycode);
+// clang-format on

@@ -13,13 +13,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #pragma once
 
-void rgb_matrix_init_user(void);
+#include QMK_KEYBOARD_H
 
-void rgb_matrix_set_color_by_keycode(uint8_t led_min, uint8_t led_max, uint8_t layer, bool (*is_keycode)(uint16_t), uint8_t red, uint8_t green, uint8_t blue);
+typedef enum {
+    TD_NONE,
+    TD_UNKNOWN,
+    TD_SINGLE_TAP,
+    TD_SINGLE_HOLD,
+    TD_DOUBLE_TAP,
+    TD_DOUBLE_HOLD,
+    TD_DOUBLE_SINGLE_TAP,  // Send two single taps
+    TD_TRIPLE_TAP,
+    TD_TRIPLE_HOLD,
+    TD_TRIPLE_SINGLE_TAP  // Send three single tap
+} td_state_t;
 
-bool is_alphabet_or_caps_lock_indicator(uint16_t keycode);
-bool is_transparent(uint16_t keycode);
-bool is_not_transparent(uint16_t keycode);
+typedef struct {
+    bool       is_press_action;
+    td_state_t state;
+} td_tap_t;
+
+td_state_t current_dance(tap_dance_state_t *state);
