@@ -43,5 +43,6 @@ enum {
 #define KC_MACFN MO(MAC_FN)
 #define KC_WINFN MO(WIN_FN)
 #define KC_LMAC C(G(KC_Q))
+#define KC_LOCKWIN G(KC_L)
 #define KC_MACPS G(S(KC_5))
 #define KC_FLXP G(KC_E)
