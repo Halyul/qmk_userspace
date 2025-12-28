@@ -44,10 +44,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,  KC_LGUI,  KC_LALT,                                KC_SPC,                                 KC_RALT,  KC_WINFN, KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [WIN_FN] = LAYOUT_ansi_82(
-        QK_RBT,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_FLXP,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,    KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,            RGB_TOG,
+        QK_RBT,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_FLXP,  UG_VALD,  UG_VALU,  KC_MPRV,  KC_MPLY,    KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,            UG_TOGG,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,  _______,            _______,
-        RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,  _______,  _______,  _______,    _______,  _______,  _______,  _______,  _______,            KC_HOME,
-        KC_CAPS,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,  _______,  _______,  _______, KC_LOCKWIN,  _______,  _______,            QK_BOOT,            KC_END,
+        UG_TOGG,  UG_NEXT,  UG_VALU,  UG_HUEU,  UG_SATU,  UG_SPDU,  _______,  _______,  _______,    _______,  _______,  _______,  _______,  _______,            KC_HOME,
+        KC_CAPS,  UG_PREV, UG_VALD,  UG_HUED,  UG_SATD,  UG_SPDD,  _______,  _______,  _______, KC_LOCKWIN,  _______,  _______,            QK_BOOT,            KC_END,
         _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,                                TO(MAC_BASE),                             _______,  _______,  _______,  _______,  _______,  _______),
 
@@ -60,10 +60,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,  KC_LALT,  KC_LGUI,                                KC_SPC,                                 KC_RGUI,  KC_MACFN, KC_RCTL,  KC_LEFT,  KC_DOWN, KC_RGHT),
 
     [MAC_FN] = LAYOUT_ansi_82(
-        QK_RBT,   KC_BRID,  KC_BRIU,  KC_MCTL,  KC_LPAD,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,            RGB_TOG,
+        QK_RBT,   KC_BRID,  KC_BRIU,  KC_MCTL,  KC_LPAD,  UG_VALD,  UG_VALU,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,            UG_TOGG,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            KC_HOME,
-        KC_CAPS,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,  _______,  _______,  _______,  KC_LMAC,  _______,  _______,            QK_BOOT,            KC_END,
+        UG_TOGG,  UG_NEXT,  UG_VALU,  UG_HUEU,  UG_SATU,  UG_SPDU,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            KC_HOME,
+        KC_CAPS,  UG_PREV, UG_VALD,  UG_HUED,  UG_SATD,  UG_SPDD,  _______,  _______,  _______,  KC_LMAC,  _______,  _______,            QK_BOOT,            KC_END,
         _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,                                TO(WIN_BASE),                           _______,  _______,  _______,  _______,  _______,  _______)
 };
@@ -79,8 +79,8 @@ void matrix_init_user(void) {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [MAC_BASE] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
-    [MAC_FN]   = { ENCODER_CCW_CW(RGB_VAI, RGB_VAD) },
+    [MAC_FN]   = { ENCODER_CCW_CW(UG_VALU, UG_VALD) },
     [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
-    [WIN_FN]   = { ENCODER_CCW_CW(RGB_VAI, RGB_VAD) },
+    [WIN_FN]   = { ENCODER_CCW_CW(UG_VALU, UG_VALD) },
 };
 #endif
